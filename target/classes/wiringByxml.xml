@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="sgtPeppers" class="com.springinaction.wiringByJavaCode.SgtPeppers" />
+
+    <bean id="cdPlayer" class="com.springinaction.wiringByJavaCode.CDPlayer">
+        <property name="compactDisc" ref="blankDiscBySetter" />
+    </bean>
+
+    <bean id="blankDisc" class="com.springinaction.wiringByJavaCode.BlankDisc">
+        <constructor-arg name="title" value="Rocking Star" />
+        <constructor-arg name="artist" value="Moon5" />
+        <constructor-arg name="tracks">
+            <set>
+                <value>Sugar</value>
+                <value>Animals</value>
+                <value>Payphone</value>
+            </set>
+        </constructor-arg>
+    </bean>
+
+    <util:list id="trackslist">
+        <value>Sugar</value>
+        <value>Animals</value>
+        <value>Payphone</value>
+        <value>Girls like you</value>
+    </util:list>
+    <bean id="blankDiscBySetter" class="com.springinaction.wiringByJavaCode.BlankDiscBySetter"
+          p:title="Rocking Star" p:artist="Marron5" p:tracks-ref="trackslist"/>
+
+
+
+</beans>

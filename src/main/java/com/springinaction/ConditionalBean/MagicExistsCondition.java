@@ -9,7 +9,7 @@ public class MagicExistsCondition implements Condition{
     public boolean matches(ConditionContext conditionContext,
                            AnnotatedTypeMetadata annotatedTypeMetadata) {
         Environment env = conditionContext.getEnvironment();
-        System.out.println(env.getProperty("os.name"));
-        return env.containsProperty("os.name");
+        System.out.println(env.getProperty("magicBean.color"));
+        return env.containsProperty("magicBean.color");
     }
 }

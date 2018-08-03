@@ -1,19 +1,20 @@
 package com.springinaction.ConditionalBean;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.*;
+import org.springframework.core.env.Environment;
 
 @Configuration
-@ImportResource("classpath:conditionalBean.xml")
+@PropertySource("classpath:/com/magicBean/magic.properties")
 public class Config {
 
+    @Autowired
+    Environment env;
     @Bean
     @Conditional(MagicExistsCondition.class)
     public MagicBean magicBean(){
         MagicBean magicBean = new MagicBean();
-        magicBean.setColor("red");
+        magicBean.setColor(env.getProperty("magicBean.color","Black"));
         return magicBean;
     }
 }

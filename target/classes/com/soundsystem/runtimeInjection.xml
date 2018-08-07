@@ -7,7 +7,7 @@
     <context:property-placeholder location="classpath:/com/soundsystem/app.properties" />
 
     <bean id="morron5" class="com.springinaction.Chapter3.RuntimeInjection.Morron5">
-        <constructor-arg name="title" value="#{systemProperties['dist.title']}" />
+        <constructor-arg name="title" value="${disc.title}" />
         <constructor-arg name="artist" value="${disc.artist}" />
     </bean>
 

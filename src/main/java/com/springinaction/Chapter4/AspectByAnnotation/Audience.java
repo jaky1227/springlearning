@@ -9,6 +9,13 @@ public class Audience {
     @Pointcut("execution(* *.perform(..))")
     public void performance(){}
 
+
+
+    @AfterReturning("execution(* *.performEncore(..))")
+    public void afterPerformEncore(){
+        System.out.println("Clap for encore");
+    }
+
 //    @Before("performance()")
 //    public void silenceCellPhones(){
 //        System.out.println("Silencing cell phone");

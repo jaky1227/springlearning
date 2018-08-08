@@ -1,6 +1,5 @@
-package com.springinaction.Chapter4.AspectByAnnotation;
+package com.springinaction.Chapter4.AspectByXml;
 
-import org.springframework.stereotype.Component;
 
 public class JZhouConcert implements Performance {
 

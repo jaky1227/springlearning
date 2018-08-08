@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="jZhouConcert" class="com.springinaction.Chapter4.AspectByXml.JZhouConcert" />
+    <bean id="audience" class="com.springinaction.Chapter4.AspectByXml.Audience" />
+    <bean id="encoreableDefault" class="com.springinaction.Chapter4.AspectByXml.DefaultEnCoreable" />
+    <aop:config>
+        <aop:aspect ref="audience">
+            <aop:pointcut id="performance" expression="execution(* *.perform(..))" />
+            <!--<aop:before method="silenceCellPhones" pointcut-ref="performance" />
+            <aop:before method="takeSeats" pointcut-ref="performance"/>
+            <aop:after-returning method="applause" pointcut-ref="performance" />
+            <aop:after-throwing method="demandRefund" pointcut-ref="performance" /> -->
+            <aop:around method="watchPerformance" pointcut-ref="performance" />
+        </aop:aspect>
+
+        <aop:aspect>
+            <aop:declare-parents types-matching="com.springinaction.Chapter4.AspectByXml.Performance+"
+                                 implement-interface="com.springinaction.Chapter4.AspectByXml.Encoreable"
+                                 delegate-ref="encoreableDefault" />
+        </aop:aspect>
+    </aop:config>
+</beans>

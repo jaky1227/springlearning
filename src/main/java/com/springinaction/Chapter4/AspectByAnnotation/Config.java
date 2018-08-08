@@ -7,7 +7,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan
 public class Config {
 
     @Bean
@@ -19,4 +18,13 @@ public class Config {
     public JZhouConcert jZhouConcert(){
         return new JZhouConcert();
     }
+
+    @Bean
+    public EncoreableIntroduce encoreableIntroduce(){
+        return new EncoreableIntroduce();
+    }
+//    @Bean
+//    public DefaultEnCoreable defaultEnCoreable(){
+//        return new DefaultEnCoreable();
+//    }
 }

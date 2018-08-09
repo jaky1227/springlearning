@@ -40,7 +40,7 @@ public class Audience {
     public void aroundPerform(ProceedingJoinPoint jp){
         try{
             System.out.println("Silencing cell phone!");
-            System.out.println("Taking seats");
+            System.out.println("Taking seats quickly");
             jp.proceed();
             System.out.println("CLAP CLAP CLAP !!!");
         }catch (Throwable e){

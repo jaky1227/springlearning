@@ -23,7 +23,7 @@ public class Audience {
     public void watchPerformance(ProceedingJoinPoint jp){
         try{
             System.out.println("Silencing cell phone!");
-            System.out.println("Taking seats");
+            System.out.println("Taking seats !");
             jp.proceed();
             System.out.println("CLAP CLAP CLAP !!!");
         }catch (Throwable e){
